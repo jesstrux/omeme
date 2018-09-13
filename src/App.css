@@ -36,7 +36,7 @@
 }
 
 .App-header input{
-  border: none;
+  border: 1.5px solid transparent;
   min-width: 0;
   max-width: 1000px;
   flex: 1;
@@ -47,6 +47,12 @@
   line-height: 20px;
   padding: 0.6em 1.25em;
   border-radius: 20px;
+  outline: none;
+}
+
+.App-header input:focus{
+  border-color: #cfdbda;
+  background: #ecf0f0;
 }
 
 main{
