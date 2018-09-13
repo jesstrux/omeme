@@ -27,9 +27,9 @@
   border: none;
   background: #eaeaea;
   margin-left: auto;
-  font-size: 13px;
-  line-height: 0;
-  padding: 1em;
+  font-size: 15px;
+  line-height: 11px;
+  padding: 0.8em 0.6em;
   border-radius: 2px;
 }
 
