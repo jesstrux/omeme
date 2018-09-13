@@ -22,6 +22,7 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <span className="App-title">Omeme</span>
+          <input type="text" placeholder="Search for gifs & memes..."/>
           <button>CREATE</button>
         </header>
         <main>

@@ -7,7 +7,6 @@
 
 .App-logo {
   height: 35px;
-  margin-right: 0.7em;
 }
 
 .App-header {
@@ -21,16 +20,31 @@
 
 .App-title{
   font-size: 20px;
+  margin-left: 0.7em;
+  display: none;
 }
 
 .App-header button{
   border: none;
-  background: #eaeaea;
+  background: #b8d6d3;
+  color: #203f3c;
   margin-left: auto;
-  font-size: 15px;
+  font-size: 13px;
   line-height: 11px;
-  padding: 0.8em 0.6em;
+  padding: 0.7em 0.6em;
   border-radius: 2px;
+}
+
+.App-header input{
+  border: none;
+  max-width: 1000px;
+  flex: 1;
+  background: #eaeaea;
+  margin: 0 1em;
+  font-size: 15px;
+  line-height: 20px;
+  padding: 0.6em 1.5em;
+  border-radius: 20px;
 }
 
 main{
