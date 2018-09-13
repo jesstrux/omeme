@@ -41,7 +41,8 @@
   max-width: 1000px;
   flex: 1;
   background: #eaeaea;
-  margin: 0 1em;
+  margin-left: 0.8em;
+  margin-right: 1em;
   font-size: 15px;
   line-height: 20px;
   padding: 0.6em 1.25em;
