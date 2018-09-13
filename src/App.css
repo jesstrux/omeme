@@ -37,6 +37,7 @@
 
 .App-header input{
   border: none;
+  min-width: 0;
   max-width: 1000px;
   flex: 1;
   background: #eaeaea;
