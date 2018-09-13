@@ -7,6 +7,7 @@
 
 .App-logo {
   height: 35px;
+  margin-right: 0.8em;
 }
 
 .App-header {
@@ -24,35 +25,34 @@
   display: none;
 }
 
-.App-header button{
-  border: none;
-  background: #b8d6d3;
-  color: #203f3c;
-  margin-left: auto;
-  font-size: 13px;
-  line-height: 11px;
-  padding: 0.7em 0.6em;
-  border-radius: 2px;
-}
-
 .App-header input{
-  border: 1.5px solid transparent;
+  border: 0.5px solid transparent;
   min-width: 0;
   max-width: 1000px;
   flex: 1;
   background: #eaeaea;
-  margin-left: 0.8em;
-  margin-right: 1em;
   font-size: 15px;
   line-height: 20px;
   padding: 0.6em 1.25em;
   border-radius: 20px;
   outline: none;
+  transition: all 0.25s ease-out;
 }
 
 .App-header input:focus{
-  border-color: #cfdbda;
-  background: #ecf0f0;
+  border-color:rgba(92, 174, 167, 0.91);
+  background: #fff;
+}
+
+.App-header button{
+  border: none;
+  background: #b8d6d3;
+  color: #203f3c;
+  font-size: 13px;
+  line-height: 11px;
+  padding: 0.7em 0.6em;
+  border-radius: 2px;
+  margin-left: 1em;
 }
 
 main{
