@@ -1,28 +1,57 @@
 .App {
-  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 40px;
+  margin-right: 1em;
 }
 
 .App-header {
-  background-color: #009688;
-  height: 150px;
-  padding: 20px;
-  color: white;
+  padding: 0.8em 1em;
+  z-index: 20;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
 }
 
 .App-title {
   font-size: 1.5em;
 }
 
-.App-intro {
-  font-size: large;
+main{
+  flex: 1;
+  padding: 0.5em;
+  overflow: auto;
+  background: #f5f5f5;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.my-masonry-grid {
+  display: flex;
+  margin-left: -0.5em; /* gutter size offset */
+  width: auto;
+}
+.my-masonry-grid_column {
+  padding-left: 0.5em; /* gutter size */
+  background-clip: padding-box;
+}
+
+.my-masonry-grid_column > .meme-gif {
+  background: #ddd;
+  border: 1px solid #777;
+  margin-bottom: 0.5em;
+}
+
+.my-masonry-grid_column > .meme-gif img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.my-masonry-grid_column > .meme-gif:nth-child(even) {
+  background: #becac8;
 }
