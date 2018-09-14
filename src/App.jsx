@@ -12,6 +12,7 @@ import MemeGifList from "./MemeGifList/MemeGifList";
 class App extends Component {
   state = {
     tab: 0,
+    searching: false,
     loading: true,
     images : []
   };

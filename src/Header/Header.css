@@ -70,10 +70,13 @@
     color: #203f3c;
     font-size: 13px;
     line-height: 0;
-    padding: 1.1em 0.6em;
+    padding: 0 0.6em;
+    height: 30px;
     border-radius: 2px;
     margin-left: 1em;
     outline: none;
+    display: flex;
+    align-items: center;
 }
 
 #tabs{
