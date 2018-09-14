@@ -62,7 +62,7 @@
     background: #b8d6d3;
     color: #203f3c;
     font-size: 13px;
-    line-height: 11px;
+    line-height: 16px;
     padding: 0.7em 0.6em;
     border-radius: 2px;
     margin-left: 1em;
@@ -80,7 +80,7 @@
     flex: 1;
     padding: 0.8em 1.25em;
     text-align: center;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
     color: #777;
     margin: 0;
     margin-bottom: -1px;
