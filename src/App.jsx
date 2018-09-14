@@ -21,7 +21,6 @@ class App extends Component {
   };
 
   handleTabbed = (page) => {
-    console.log("Tab to page", page);
     this.setState({ page: page })
 
     var images = IMAGES.slice(0,50).map( img => {
