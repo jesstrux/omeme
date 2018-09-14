@@ -112,7 +112,7 @@
 }
 
 #tabs button.ripple:after{
-    animation: ripple 0.35s ease-out;
+    animation: ripple 0.25s ease-in-out;
 }
 
 @keyframes ripple{

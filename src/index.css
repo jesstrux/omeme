@@ -3,3 +3,41 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+@media screen and (min-width: 680px){
+  *{
+    overflow: hidden !important;
+  }
+  #root:before,
+  #root:after{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background: #fff;
+  }
+
+  #root:after{
+    content: 'Please resize to phone size or use a mobile device.';
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin: auto;
+    height: 120px;
+    width: 320px;
+    z-index: 101;
+    text-align: center;
+    line-height: 1.3em;
+    font-size: 1.4em;
+    color: #888;
+    border: 2px double #ddd;
+  }
+}

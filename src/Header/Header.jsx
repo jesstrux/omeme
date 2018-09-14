@@ -15,7 +15,7 @@ const Header = ( props ) => {
             <button>CREATE</button>
           </div>
 
-          <Tabs onTabbed={ page => props.onTabbed(page)}/>
+          <Tabs page={props.page} onTabbed={ page => props.onTabbed(page)}/>
         </header>
      );
 }

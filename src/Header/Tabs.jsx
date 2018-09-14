@@ -1,4 +1,24 @@
 import React from 'react';
+import lifecycle from 'react-pure-lifecycle';
+
+const methods = {
+    componentDidMount(props) {
+        const tabNodes = document.querySelectorAll(".tab");
+
+        for( let i = 0; i < tabNodes.length; i++){
+            const tab = tabNodes[i];
+
+            tab.onclick = () => {
+                tab.classList.add("ripple");
+            }
+
+            tab.addEventListener("animationend", () => {
+                console.log("Animation ended!!");
+                tab.classList.remove("ripple");
+            });
+        }
+    }
+};
 
 const Tabs = ( props ) => {
     const { page } = props;
@@ -7,21 +27,9 @@ const Tabs = ( props ) => {
         activeIndex = page;
 
     const tabs = ["ALL", "MEMES", "GIFS"];
-    const tabNodes = document.querySelectorAll(".tab");
-
-    for( let i = 0; i < tabNodes.length; i++){
-        const tab = tabNodes[i];
-
-        tab.onanimationend = function(){
-            tab.classList.remove("ripple");
-        }
-    }
 
     function handleTabClicked(index){
         props.onTabbed(index);
-        // let selectedTab = tabNodes[index];
-        // selectedTab.classList.add("ripple");
-        console.log(tabNodes);
     }
 
     return ( 
@@ -40,5 +48,5 @@ const Tabs = ( props ) => {
         </div>
     );
 }
- 
-export default Tabs;
+
+export default lifecycle(methods)(Tabs);

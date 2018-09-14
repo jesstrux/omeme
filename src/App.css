@@ -15,3 +15,22 @@ main{
   overflow: auto;
   background: #f5f5f5;
 }
+
+main.change{
+  animation: change 0.5s ease-in-out;
+}
+
+@keyframes change{
+  20%{
+    opacity: 0;
+  }
+  
+  50%{
+      opacity: 0;
+      transform: translateY(200px)
+  }
+  100%{
+      transform: none;
+      opacity: 1;
+  }
+}
