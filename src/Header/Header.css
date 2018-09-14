@@ -48,9 +48,8 @@
 #searchWrapper{
     position: relative;
     flex: 1;
-    border-radius: 20px;
     overflow: hidden;
-    background: #00f;
+    padding: 0 20px;
 }
 
 #searchWrapper button{
@@ -59,9 +58,10 @@
     right: 0.8em;
     bottom: 0;
     margin: auto 0;
-    background: #ddd;
-    width: 30px;
-    height: 30px;
+    background: #bad9d6;
+    padding: 0;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -69,6 +69,7 @@
 }
 
 .App-header input{
+    margin-left: -20px;
     border: 0.5px solid transparent;
     background: #eaeaea;
     min-width: 0;
@@ -79,6 +80,7 @@
     padding-bottom: 0.7em;
     outline: none;
     transition: all 0.25s ease-out;
+    border-radius: 20px;
 }
 
 .App-header input:focus{
@@ -92,7 +94,6 @@
     background: #b8d6d3;
     color: #203f3c;
     font-size: 13px;
-    line-height: 0;
     padding: 0 0.6em;
     height: 30px;
     border-radius: 2px;
@@ -100,6 +101,10 @@
     outline: none;
     display: flex;
     align-items: center;
+}
+
+.App-header input:not(:valid) + button{
+    opacity: 0;
 }
 
 #tabs{
