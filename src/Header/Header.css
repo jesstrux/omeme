@@ -62,8 +62,8 @@
     background: #b8d6d3;
     color: #203f3c;
     font-size: 13px;
-    line-height: 13px;
-    padding: 0.7em 0.6em;
+    line-height: 0;
+    padding: 1.1em 0.6em;
     border-radius: 2px;
     margin-left: 1em;
     outline: none;
