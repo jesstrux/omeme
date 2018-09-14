@@ -3,13 +3,15 @@
     background: #fff;
     position: relative;
     overflow: hidden;
-    transition: max-height 10s ease-out;
-    height: auto;
-    max-height: 1000px;
+    height: 115px;
+    max-height: 115px;
+
+    transition: max-height 0.5s ease-out;
 }
 
 .App-header.loading{
     max-height: 65px;
+    transition: none;
 }
 
 .App-header:after{
@@ -43,17 +45,38 @@
     display: none;
 }
 
+#searchWrapper{
+    position: relative;
+    flex: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #00f;
+}
+
+#searchWrapper button{
+    position: absolute;
+    top: 0;
+    right: 0.8em;
+    bottom: 0;
+    margin: auto 0;
+    background: #ddd;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .App-header input{
     border: 0.5px solid transparent;
-    min-width: 0;
-    max-width: 1000px;
-    flex: 1;
     background: #eaeaea;
+    min-width: 0;
+    width: 100%;
     font-size: 15px;
     line-height: 20px;
     padding: 0.6em 1.25em;
     padding-bottom: 0.7em;
-    border-radius: 20px;
     outline: none;
     transition: all 0.25s ease-out;
 }
@@ -82,11 +105,13 @@
 #tabs{
     display: flex;
     overflow: hidden;
-    transition: opacity 1s ease-out 0.3s;
+    transition: all 0.3s ease-out;
 }
 
 .App-header.loading #tabs{
     opacity: 0;
+    transform: translateY(-20%);
+    transition: none;
 }
 
 #tabs button{

@@ -13,7 +13,14 @@ const Header = ( props ) => {
           <div id="toolbar">
             <img src={logo} className="App-logo" alt="logo" />
               <span className="App-title">Omeme</span>
-              <input type="text" placeholder="Search for gifs & memes..."/>
+              <div id="searchWrapper">
+                <input type="text" placeholder="Search for gifs & memes..."
+                  onKeyUp={ e => props.onSearch(e.target.value) }/>
+                
+                <button onClick={ props.clearSearch }>
+                  <svg width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                </button>
+              </div>
             <button>CREATE</button>
           </div>
 
