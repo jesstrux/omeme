@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { IMAGES } from "./images";
+
+import { filter } from "lodash";
 import './App.css';
 import MiniRouter from "./MiniRouter";
 
@@ -9,35 +11,39 @@ import MemeGifList from "./MemeGifList/MemeGifList";
 
 class App extends Component {
   state = {
-    page: 0,
+    tab: 0,
+    loading: true,
+    images : []
+  };
 
-    images : IMAGES.slice(0,50).map( img => {
+  componentDidMount(){
+    setTimeout(() => {
+      this.setState({ loading: false, images: this.getImages() })
+    }, 1000);
+  }
+
+  handleTabbed = (tab) => {
+    this.setState({ tab: tab })
+
+    let images = this.getImages();    
+    images = filter(images, ["type", tab === 1 ? "meme" : "gif"])
+
+    this.animateNewImages(images);
+
+    window.history.pushState({tab: tab}, "tab 1", "?searching=" + this.state.searching);
+  }
+
+  getImages(){
+    return IMAGES.slice(0,50).map( img => {
       const src = img.src;
       const ext = src.substring(src.lastIndexOf(".") + 1);
       img.type = ext === "gif" ? "gif" : "meme";
 
       return img;
     })
-  };
+  }
 
-  handleTabbed = (page) => {
-    this.setState({ page: page })
-
-    var images = IMAGES.slice(0,50).map( img => {
-      const src = img.src;
-      const ext = src.substring(src.lastIndexOf(".") + 1);
-      img.type = ext === "gif" ? "gif" : "meme";
-
-      return img;
-    });
-
-    if(page === 1){
-      images = images.filter((image) => image.type === "meme")
-    }
-    else if(page === 2){
-      images = images.filter((image) => image.type === "gif")
-    }
-
+  animateNewImages(images){
     const main = document.querySelector("main");
 
     main.classList.add("change");
@@ -46,11 +52,10 @@ class App extends Component {
         main.classList.remove("change");
     });
 
+    //set newly filtered images only after the view has faded out down
     setTimeout(() => {
       this.setState({images: images});
     }, 100);
-
-    // history.pushState({page: 1}, "title 1", "?page=1");
   }
 
   render() {
@@ -58,10 +63,10 @@ class App extends Component {
       <div className="App">
         <MiniRouter/>
 
-        <Header page={this.state.page} onTabbed={this.handleTabbed}/>
+        <Header loading={this.state.loading} tab={this.state.tab} onTabbed={this.handleTabbed}/>
 
         <main>
-          <MemeGifList images={this.state.images}/>
+          <MemeGifList loading={this.state.loading} images={this.state.images}/>
         </main>
       </div>
     );

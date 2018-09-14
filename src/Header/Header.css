@@ -1,9 +1,15 @@
 .App-header {
     z-index: 20;
     background: #fff;
-    display: flex;
-    flex-direction: column;
     position: relative;
+    overflow: hidden;
+    transition: max-height 10s ease-out;
+    height: auto;
+    max-height: 1000px;
+}
+
+.App-header.loading{
+    max-height: 65px;
 }
 
 .App-header:after{
@@ -21,7 +27,7 @@
 }
 
 .App-header #toolbar{
-    padding: 0.7em 0.5em;
+    margin: 0.7em 0.5em;
     display: flex;
     align-items: center;
 }
@@ -46,6 +52,7 @@
     font-size: 15px;
     line-height: 20px;
     padding: 0.6em 1.25em;
+    padding-bottom: 0.7em;
     border-radius: 20px;
     outline: none;
     transition: all 0.25s ease-out;
@@ -71,14 +78,18 @@
 
 #tabs{
     display: flex;
-    margin-top: 0.1em;
     overflow: hidden;
+    transition: opacity 1s ease-out 0.3s;
+}
+
+.App-header.loading #tabs{
+    opacity: 0;
 }
 
 #tabs button{
     display: block;
     flex: 1;
-    padding: 0.8em 1.25em;
+    padding: 1em 1.25em;
     text-align: center;
     letter-spacing: 0.1em;
     color: #777;
@@ -91,6 +102,8 @@
     font-size: 0.98em;
     position: relative;
     outline: none;
+
+    transition: all 0.35s ease-out;
 }
 
 #tabs button.active{

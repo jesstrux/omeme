@@ -6,8 +6,10 @@ import './Header.css';
 import Tabs from "./Tabs";
 
 const Header = ( props ) => {
+    const { loading } = props;
+
     return ( 
-        <header className="App-header">
+        <header className={'App-header' + (loading ? ' loading' : '')}>
           <div id="toolbar">
             <img src={logo} className="App-logo" alt="logo" />
               <span className="App-title">Omeme</span>
@@ -15,7 +17,7 @@ const Header = ( props ) => {
             <button>CREATE</button>
           </div>
 
-          <Tabs page={props.page} onTabbed={ page => props.onTabbed(page)}/>
+          <Tabs tab={props.tab} onTabbed={ tab => props.onTabbed(tab)}/>
         </header>
      );
 }

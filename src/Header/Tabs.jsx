@@ -21,10 +21,10 @@ const methods = {
 };
 
 const Tabs = ( props ) => {
-    const { page } = props;
+    const { tab } = props;
     let activeIndex = 0;
-    if(page !== undefined)
-        activeIndex = page;
+    if(tab !== undefined)
+        activeIndex = tab;
 
     const tabs = ["ALL", "MEMES", "GIFS"];
 
