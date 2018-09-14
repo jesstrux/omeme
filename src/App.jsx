@@ -1,39 +1,37 @@
 import React, { Component } from 'react';
-import Masonry from 'react-masonry-css'
-import MemeGif from "./MemeGif";
 import { IMAGES } from "./images";
-import logo from './logo.png';
 import './App.css';
+import MiniRouter from "./MiniRouter";
+
+// components
+import Header from "./Header/Header";
+import MemeGifList from "./MemeGifList/MemeGifList";
 
 class App extends Component {
   state = {
-    images : IMAGES.slice(0,20)
+    images : IMAGES.slice(0,50).map( img => {
+      const src = img.src;
+      const ext = src.substring(src.lastIndexOf(".") + 1);
+      img.type = ext === "gif" ? "gif" : "meme";
+
+      return img;
+    })
   };
 
-  render() {
-    const breakpointColumnsObj = {
-      default: 5,
-      1100: 4,
-      700: 3,
-      500: 2
-    };
+  handleTabbed(page){
+    console.log("Tab to page", page);
+    // history.pushState({page: 1}, "title 1", "?page=1");
+  }
 
-    return (<div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <span className="App-title">Omeme</span>
-          <input type="text" placeholder="Search for gifs & memes..."/>
-          <button>CREATE</button>
-        </header>
+  render() {
+    return (
+      <div className="App">
+        <MiniRouter/>
+
+        <Header onTabbed={this.handleTabbed}/>
+
         <main>
-          <Masonry
-            breakpointCols={breakpointColumnsObj}
-            className="my-masonry-grid"
-            columnClassName="my-masonry-grid_column">
-            { this.state.images.map( (img, index) => (
-              <MemeGif image={img} key={index} />
-            ))}
-          </Masonry>
+          <MemeGifList images={this.state.images}/>
         </main>
       </div>
     );
