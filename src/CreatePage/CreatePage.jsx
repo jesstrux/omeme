@@ -84,7 +84,9 @@ class CreatePage extends Component {
         //     console.log(blob);
         // });
 
-        this.setState({cantshare: false, canvas: canvas});
+        if (navigator.share !== undefined) {
+            this.setState({cantshare: false, canvas: canvas});
+        }
     }
 
     fillText(context, text, x, y, color, maxWidth, lineHeight) {

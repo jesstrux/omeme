@@ -72,7 +72,9 @@
 }
 
 #backButton{
-    
+    background: transparent;
+    border: none;
+    padding: 0;
 }
 
 .App-header.dark #backButton svg{
