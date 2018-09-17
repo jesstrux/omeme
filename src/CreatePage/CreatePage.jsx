@@ -9,7 +9,7 @@ class CreatePage extends Component {
         cantshare: true,
         cancas: null,
         cur_image: null,
-        topText: "So you really think this is funny, like really?",
+        topText: "",
         topColor: "#000000",
         bottomColor: "#000000"
     };
