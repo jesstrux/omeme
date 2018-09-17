@@ -30,16 +30,22 @@ class DetailPage extends Component{
     }
 
     shareImage = () => {
-        const image = this.state.shareImage;
+        // const image = this.state.shareImage;
         
-        const imageBox = document.querySelector("#detailImage img").getBoundingClientRect()
-        const canvas = document.createElement('canvas');
-        canvas.width = imageBox.width;
-        canvas.height = imageBox.height;
-        canvas.getContext('2d').drawImage(image, 0, 0);
-        canvas.toBlob(blob => {
-            console.log(navigator);
-            navigator.share({blob: blob, mimeType: 'image/png'})
+        // const imageBox = document.querySelector("#detailImage img").getBoundingClientRect()
+        // const canvas = document.createElement('canvas');
+        // canvas.width = imageBox.width;
+        // canvas.height = imageBox.height;
+        // canvas.getContext('2d').drawImage(image, 0, 0);
+        // canvas.toBlob(blob => {
+        //     console.log(navigator);
+        //     navigator.share({blob: blob, mimeType: 'image/png'})
+        // });
+
+        navigator.share({
+            title: document.title,
+            text: 'Hello World',
+            url: 'https://developer.mozilla.org',
         });
     }
 

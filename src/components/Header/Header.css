@@ -92,8 +92,13 @@
 
 .App-title{
     font-size: 20px;
-    margin-left: 0.7em;
-    display: none;
+    margin-left: 0.2em;
+    color: #000;
+}
+
+.App-title + #searchWrapper{
+    margin-left: 0.8em;
+    margin-right: 0.1em;
 }
 
 #searchWrapper{

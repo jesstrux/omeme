@@ -10,7 +10,17 @@
   margin: 0 auto;
 }
 
-#imagesWrapper.change{
+#imagesWrapper{
+  transition: all 0.5s ease-in-out;
+}
+
+#imagesWrapper.hide{
+  /* opacity: 0;
+  transform: translateY(200px) */
+}
+
+#imagesWrapper:not(.hide).change{
+  transition: none;
   animation: change 0.5s ease-in-out;
 }
 
@@ -20,8 +30,8 @@
   }
   
   50%{
-      opacity: 0;
-      transform: translateY(200px)
+    opacity: 0;
+    transform: translateY(200px)
   }
   100%{
       transform: none;

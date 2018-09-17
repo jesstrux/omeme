@@ -6,7 +6,7 @@ export const query = (url) => {
     const promise = new Promise((resolve, reject) => {
         axios.get( url, {
             headers: {
-                "Authorization": "Bearer 8116d2d1306724271652274461268adfe30927cb"
+                "Authorization": "Bearer 1e91bb149d5f12d9c2d1608bba0b17874088e435"
             },
         })
         .then(response => {

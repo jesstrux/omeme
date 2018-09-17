@@ -4,8 +4,21 @@ import Masonry from 'react-masonry-css'
 import MemeGif from "./MemeGif";
 import './MemeGifList.css';
 
+import lifecycle from 'react-pure-lifecycle';
+
+const methods = {
+    componentDidMount(props) {
+        const imagesWrapper = document.querySelector("#imagesWrapper");
+        
+        imagesWrapper.addEventListener("animationend", ( e ) => {
+            imagesWrapper.classList.remove("change");
+            props.onImagesAnimated()
+        });
+    }
+};
+
 const MemeGifList = ( props ) => {
-    const { images } = props;
+    const { images, imagesChanging } = props;
     const breakpointColumnsObj = {
         default: 5,
         1100: 4,
@@ -14,7 +27,7 @@ const MemeGifList = ( props ) => {
     };
 
     return ( 
-        <React.Fragment>
+        <div id="imagesWrapper" className={(!images.length ? 'hide' : '') + (imagesChanging ? 'change' : '')}>
             <Masonry
                 breakpointCols={breakpointColumnsObj}
                 className="my-masonry-grid"
@@ -24,8 +37,8 @@ const MemeGifList = ( props ) => {
                         onClicked={ image => props.onViewImage( image ) } />
                 ))}
             </Masonry>
-        </React.Fragment>
+        </div>
      );
 }
  
-export default MemeGifList;
+export default lifecycle(methods)(MemeGifList);
