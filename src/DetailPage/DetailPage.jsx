@@ -24,6 +24,8 @@ class DetailPage extends Component{
                 this.setState({imageLoaded : true, shareImage: img});
             }
             img.src = image.src;
+        }else{
+            alert("You can't share")
         }
     }
 
