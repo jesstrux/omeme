@@ -1,49 +1,61 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './DetailPage.css';
 import Img from 'react-image'
-import lifecycle from 'react-pure-lifecycle';
 
 // components
 import Header from "../Header/Header";
 
 let imageHeight;
 
-const methods = {
-    componentWillMount( { image } ) {
+class DetailPage extends Component{
+    state = {
+        shareImage: null,
+        imageLoaded: false
+    };
+
+    componentWillMount() {
+        const image = this.props.image;
         imageHeight = window.innerWidth / image.width * image.height;
-    }
-};
 
-const DetailPage = ( props ) => {
-    let { image } = props;
-
-    image = image || {};
-
-    function shareImage() {
-        var image = document.querySelector("#detailImage img");
-        var canvas = document.createElement('canvas');
-        canvas.width = image.width;
-        canvas.height = image.height;
-        canvas.getContext('2d').drawImage(image, 0, 0);
-        canvas.toBlob(blob => navigator.share({blob: blob, mimeType: 'image/png'}),
-                    'image/png');
+        var img = new Image();
+        img.crossOrigin = "anonymous";
+        img.onload = () => {
+            this.setState({imageLoaded : true, shareImage: img});
+        }
+        img.src = image.src;
     }
 
-    return ( 
-        <div id="detailPage">
-            <Header notabs hasback dark onBackPressed={props.onGoBack} />
+    shareImage = () => {
+        const image = this.state.shareImage;
         
-            <div id="detailContent">
-                <div id="detailImage" style={ { height: imageHeight, backgroundImage: "url(" + image.thumb + ")" } }>
-                    <Img src={image.src} alt="" />
-                </div>
-            </div>
+        const imageBox = document.querySelector("#detailImage img").getBoundingClientRect()
+        const canvas = document.createElement('canvas');
+        canvas.width = imageBox.width;
+        canvas.height = imageBox.height;
+        canvas.getContext('2d').drawImage(image, 0, 0);
+        canvas.toBlob(blob => {
+            navigator.share({blob: blob, mimeType: 'image/png'})
+        });
+    }
 
-            <button id="shareButton" onClick={ shareImage }>
-                SHARE
-            </button>
-        </div>
-    );
+    render(){
+        return ( 
+            <div id="detailPage">
+                <Header notabs hasback dark onBackPressed={this.props.onGoBack} />
+            
+                <div id="detailContent">
+                    <div id="detailImage" style={ { height: imageHeight, backgroundImage: "url(" + this.props.image.thumb + ")" } }>
+                        <Img src={this.props.image.src} alt="" />
+                    </div>
+                </div>
+
+                { this.state.imageLoaded && <button id="shareButton" onClick={ this.shareImage }>
+                        SHARE
+                    </button>
+                }
+            </div>
+        );
+    }
 }
  
-export default lifecycle(methods)(DetailPage);
+export default DetailPage;

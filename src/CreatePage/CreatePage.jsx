@@ -129,7 +129,7 @@ class CreatePage extends Component {
 
     shareImage = () => {
         this.state.canvas.toBlob(blob => {
-            navigator.share({blob: blob, mimeType: 'image/png'}, 'image/png')
+            navigator.share({blob: blob, mimeType: 'image/png'})
         });
     }
 

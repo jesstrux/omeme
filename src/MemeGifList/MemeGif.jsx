@@ -1,4 +1,5 @@
 import React from "react";
+import VisibilitySensor from 'react-visibility-sensor'
 import Img from 'react-image'
 
 const MemeGif = (props) => {
@@ -7,7 +8,9 @@ const MemeGif = (props) => {
 
   return (
     <div className={'meme-gif ' + type} style={ getStyles() } onClick={ () => props.onClicked(image) }>
-      <Img src={thumb} alt=""/>
+      <VisibilitySensor>
+        <Img src={thumb} alt=""/>
+      </VisibilitySensor>
     </div>
   )
 
