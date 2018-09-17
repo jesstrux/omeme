@@ -9,6 +9,39 @@
     transition: max-height 0.5s ease-out;
 }
 
+.App-header.dark{
+    background: #000;
+}
+
+#slotActions{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+#slotActions button:not(#createButton),
+#slotActions .btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-left: 1em;
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
+.App-header.dark #slotActions button svg,
+.App-header.dark #slotActions .btn svg{
+    fill: #aaa;
+}
+
+.App-header.no-tabs{
+    height: auto;
+}
+
 .App-header.loading{
     max-height: 65px;
     transition: none;
@@ -24,7 +57,11 @@
     background: #ccc;
 }
 
-.App-header.fixed{
+.App-header.no-tabs:after{
+    display: none;
+}
+
+.App-header:not(.no-tabs).fixed{
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
@@ -34,9 +71,21 @@
     align-items: center;
 }
 
+#backButton{
+    
+}
+
+.App-header.dark #backButton svg{
+    fill: #aaa;
+}
+
 .App-logo {
     height: 35px;
     margin-right: 0.8em;
+}
+
+.has-back .App-logo{
+    display: none;
 }
 
 .App-title{
@@ -50,6 +99,11 @@
     flex: 1;
     overflow: hidden;
     padding: 0 20px;
+    margin-right: 1em;
+}
+
+.no-tabs #searchWrapper{
+    display: none;
 }
 
 #searchWrapper button{
@@ -88,7 +142,7 @@
     background: #fff;
 }
 
-.App-header button:not(.tab){
+.App-header #createButton{
     position: relative;
     border: none;
     background: #b8d6d3;
@@ -97,7 +151,7 @@
     padding: 0 0.6em;
     height: 30px;
     border-radius: 2px;
-    margin-left: 1em;
+    margin-left: auto;
     outline: none;
     display: flex;
     align-items: center;

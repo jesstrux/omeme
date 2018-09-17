@@ -4,7 +4,8 @@ import Masonry from 'react-masonry-css'
 import MemeGif from "./MemeGif";
 import './MemeGifList.css';
 
-const MemeGifList = ( { images, loading } ) => {
+const MemeGifList = ( props ) => {
+    const { images } = props;
     const breakpointColumnsObj = {
         default: 5,
         1100: 4,
@@ -19,7 +20,8 @@ const MemeGifList = ( { images, loading } ) => {
                 className="my-masonry-grid"
                 columnClassName="my-masonry-grid_column">
                 { images.map( (img, index) => (
-                <MemeGif image={img} key={index} />
+                    <MemeGif image={img} key={index} 
+                        onClicked={ image => props.onViewImage( image ) } />
                 ))}
             </Masonry>
         </React.Fragment>

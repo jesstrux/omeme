@@ -1,11 +1,12 @@
 import React from "react";
 import Img from 'react-image'
 
-const MemeGif = ({ image }) => {
+const MemeGif = (props) => {
+  const { image } = props;
   const { h, w, thumb, type } = image;
 
   return (
-    <div className={'meme-gif ' + type} style={ getStyles() }>
+    <div className={'meme-gif ' + type} style={ getStyles() } onClick={ () => props.onClicked(image) }>
       <Img src={thumb} alt=""/>
     </div>
   )

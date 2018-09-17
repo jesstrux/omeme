@@ -15,27 +15,3 @@ main{
   padding: 0.5em;
   overflow: auto;
 }
-
-#loader{
-  display: block;
-  margin: 0 auto;
-}
-
-#imagesWrapper.change{
-  animation: change 0.5s ease-in-out;
-}
-
-@keyframes change{
-  20%{
-    opacity: 0;
-  }
-  
-  50%{
-      opacity: 0;
-      transform: translateY(200px)
-  }
-  100%{
-      transform: none;
-      opacity: 1;
-  }
-}
