@@ -16,6 +16,11 @@ main{
   overflow: auto;
 }
 
+#loader{
+  display: block;
+  margin: 0 auto;
+}
+
 #modal{
   position: fixed;
   top: 0;

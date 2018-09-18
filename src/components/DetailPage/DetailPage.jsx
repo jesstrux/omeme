@@ -25,7 +25,7 @@ class DetailPage extends Component{
             }
             img.src = image.src;
         }else{
-            alert("You can't share")
+            console.log("You can't share")
         }
     }
 
