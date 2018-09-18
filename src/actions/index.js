@@ -1,5 +1,4 @@
-import request from 'superagent';
-import { BASE_URL } from "../api";
+import { query } from "../api";
 
 export const FETCH_IMAGES = 'FETCH_IMAGES';
 export const SWITCH_TABS = 'SWITCH_TABS';
@@ -11,8 +10,9 @@ export const SIGN_USER_OUT = 'SIGN_USER_OUT';
 
 
 export function fetchImages() {
-    const data = request.get(BASE_URL + "/gallery/lJzTY")
-        .set("Authorization", "Bearer 1e91bb149d5f12d9c2d1608bba0b17874088e435");
+    // const data = request.get(BASE_URL + "/gallery/lJzTY")
+    //     .set("Authorization", "Bearer 1e91bb149d5f12d9c2d1608bba0b17874088e435");
+    const data = query("/gallery/lJzTY");
         
     return {
         type: FETCH_IMAGES,

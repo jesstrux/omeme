@@ -13,7 +13,7 @@ const initialState = {
 export default function gifs(state = initialState, action) {
     switch (action.type) {
       case FETCH_IMAGES:
-        let images = formatImages(action.payload.body.data);
+        let images = formatImages(action.payload);
 
         images = images.slice(0,50).map( img => {
           const src = img.src;

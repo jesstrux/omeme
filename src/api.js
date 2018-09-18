@@ -4,7 +4,7 @@ export const BASE_URL = "https://api.imgur.com/3";
 
 export const query = (url) => {
     const promise = new Promise((resolve, reject) => {
-        axios.get( url, {
+        axios.get( BASE_URL + url, {
             headers: {
                 "Authorization": "Bearer 1e91bb149d5f12d9c2d1608bba0b17874088e435"
             },
