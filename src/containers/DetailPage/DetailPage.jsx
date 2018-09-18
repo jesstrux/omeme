@@ -3,7 +3,7 @@ import './DetailPage.css';
 import Img from 'react-image'
 
 // components
-import Header from "../Header/Header";
+import Header from "../../components/Header/Header";
 
 let imageHeight;
 

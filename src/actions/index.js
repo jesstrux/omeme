@@ -6,6 +6,9 @@ export const SWITCH_TABS = 'SWITCH_TABS';
 export const SEARCH_IMAGES = 'SEARCH_IMAGES';
 export const VIEW_IMAGE = 'VIEW_IMAGE';
 export const HIDE_IMAGE = 'HIDE_IMAGE';
+export const SIGN_USER_IN = 'SIGN_USER_IN';
+export const SIGN_USER_OUT = 'SIGN_USER_OUT';
+
 
 export function fetchImages() {
     const data = request.get(BASE_URL + "/gallery/lJzTY")
@@ -40,8 +43,20 @@ export function viewImage(image = {}) {
 }
 
 export function hideImage() {
-  console.log("Hide image");
   return {
     type: HIDE_IMAGE
+  }
+}
+
+export function signUserIn(user) {
+  return {
+    type: SIGN_USER_IN,
+    user
+  }
+}
+
+export function signUserOut() {
+  return {
+    type: SIGN_USER_OUT
   }
 }
